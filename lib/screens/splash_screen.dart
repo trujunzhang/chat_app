@@ -1,3 +1,4 @@
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ieatta/controllers/user_controller.dart';
 import 'package:ieatta/widgets/login_button.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
             isLoggedIn == null
                 ? CircularProgressIndicator()
                 : !isLoggedIn
-                    ? LoginButton("Continue with Facebook",
+                    ? LoginButton("Continue with Google",
                         color: Color(0xff3b5998),
                         onPressed: initiateFacebookLogin,
                         leading: Image.network(
@@ -90,6 +91,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void initiateFacebookLogin() async {
+    GoogleSignIn _googleSignIn = GoogleSignIn(
+      scopes: ['email'],
+    );
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final AuthResult authResult =
+    await FirebaseAuth.instance.signInWithCredential(credential);
 //    var facebookLogin = FacebookLogin();
 //    var result = await facebookLogin
 //        .logInWithReadPermissions(['email', 'public_profile']);
@@ -107,15 +119,15 @@ class _SplashScreenState extends State<SplashScreen> {
 //        print("Success");
 //        final AuthResult authResult =
 //            await FirebaseAuth.instance.signInWithCredential(credential);
-//        FirebaseUser user = authResult.user;
-//        print("User $user");
-//        setState(() {
-//          isLoggedIn = true;
-//        });
-//        await UserController.updateUser(true);
-//        if (user != null) {
-//          Navigator.of(context).pushNamed('/main');
-//        }
+        FirebaseUser user = authResult.user;
+        print("User $user");
+        setState(() {
+          isLoggedIn = true;
+        });
+        await UserController.updateUser(true);
+        if (user != null) {
+          Navigator.of(context).pushNamed('/main');
+        }
 //        break;
 //    }
   }

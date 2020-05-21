@@ -70,5 +70,9 @@
   <string>We need to know your current location to find the near places. Do you allow us to use location service on this device ?</string>
   <key>NSLocationAlwaysUsageDescription</key>
   <string>Allow IEATTA experiences to use your location</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Can I use the camera please?</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Can I use the mic please?</string>
 </dict>
 </plist>
