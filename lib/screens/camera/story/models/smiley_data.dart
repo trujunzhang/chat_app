@@ -1,5 +1,5 @@
 
-import '../screens/camera/story/models/basic.dart';
+import 'basic.dart';
 
 class SmileyData extends Basic{
   final String smileyPath;

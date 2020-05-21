@@ -7,9 +7,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../models/story.dart';
-import '../models/story.dart';
-import '../models/story.dart';
-import '../models/story.dart';
 
 class StoriesController {
   static Future<bool> storeImage(Uint8List data) async {

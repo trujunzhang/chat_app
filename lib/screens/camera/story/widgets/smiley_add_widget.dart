@@ -1,4 +1,4 @@
-import 'package:ieatta/models/smiley_data.dart';
+import 'package:ieatta/screens/camera/story/models/smiley_data.dart';
 import 'package:flutter/material.dart';
 import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
 

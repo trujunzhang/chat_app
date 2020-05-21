@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:ieatta/screens/camera/story/models/basic.dart';
-import 'package:ieatta/screens/camera/story/models/image_data.dart';
+import 'models/basic.dart';
+import 'models/image_data.dart';
 import 'widgets/smiley_add_widget.dart';
 import 'widgets/story_create_widget.dart';
 import 'widgets/text_add_widget.dart';
