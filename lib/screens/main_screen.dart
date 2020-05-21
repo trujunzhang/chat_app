@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:ieatta/controllers/user_controller.dart';
 import 'package:ieatta/screens/people_screen.dart';
-import 'package:ieatta/widgets/ease_in_widget.dart';
 import 'package:ieatta/widgets/profile_picture_widget.dart';
 import 'package:ieatta/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'camera/widgets/ease_in_widget.dart';
 import 'chats_screen.dart';
 import 'discover_screen.dart';
 

@@ -1,4 +1,4 @@
-import 'package:ieatta/screens/camera_screen.dart';
+import 'package:ieatta/screens/camera/camera_screen.dart';
 import 'package:ieatta/screens/chat_screen.dart';
 import 'package:ieatta/screens/search_screen.dart';
 import 'package:ieatta/screens/splash_screen.dart';

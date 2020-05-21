@@ -1,8 +1,7 @@
 import 'package:ieatta/models/story.dart';
+import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
 import 'package:ieatta/widgets/user_widget.dart';
 import 'package:flutter/material.dart';
-
-import 'ease_in_widget.dart';
 
 class StoryWidget extends StatelessWidget {
   final Story story;

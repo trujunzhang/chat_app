@@ -1,7 +1,6 @@
 import 'package:ieatta/models/smiley_data.dart';
 import 'package:flutter/material.dart';
-
-import 'ease_in_widget.dart';
+import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
 
 class SmileyAddWidget extends StatefulWidget {
   final Function(SmileyData) onSelected;

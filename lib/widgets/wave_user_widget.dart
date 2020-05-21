@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:ieatta/models/user.dart';
+import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
 import 'package:ieatta/widgets/user_widget.dart';
 import 'package:flutter/material.dart';
-
-import 'ease_in_widget.dart';
 
 class WaveUserWidget extends StatefulWidget {
   final User user;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
 
-import 'ease_in_widget.dart';
 
 class AddStoryButton extends StatelessWidget {
   final double size;
