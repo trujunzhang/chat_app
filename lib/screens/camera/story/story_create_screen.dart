@@ -1,12 +1,10 @@
-import 'dart:io';
-
-import 'package:ieatta/controllers/image_compresser.dart';
-import 'package:ieatta/models/basic.dart';
-import 'package:ieatta/models/image_data.dart';
-import 'package:ieatta/widgets/smiley_add_widget.dart';
-import 'package:ieatta/widgets/story_create_widget.dart';
-import 'package:ieatta/widgets/text_add_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ieatta/screens/camera/story/models/basic.dart';
+import 'package:ieatta/screens/camera/story/models/image_data.dart';
+import 'widgets/smiley_add_widget.dart';
+import 'widgets/story_create_widget.dart';
+import 'widgets/text_add_widget.dart';
 
 class StoryCreateScreen extends StatefulWidget {
   final String imagePath;
