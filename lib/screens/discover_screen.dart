@@ -1,6 +1,5 @@
+import 'package:ieatta/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
-
-import 'camera/widgets/rounded_button.dart';
 
 class DiscoverScreen extends StatefulWidget {
   @override
@@ -20,13 +19,19 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
             ),
             Padding(
-              padding: const EdgeInsets.only(top:8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "Contribute to app github repository",
-                style: TextStyle(fontSize: 16.0,),
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
               ),
             ),
-            RoundedButton("Contribute",onTap: (){},nextIcon: true,)
+            RoundedButton(
+              "Contribute",
+              onTap: () {},
+              nextIcon: true,
+            )
           ],
         ),
       ),

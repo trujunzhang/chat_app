@@ -1,4 +1,4 @@
-import 'package:ieatta/screens/camera/camera_screen.dart';
+import 'package:ieatta/screens/camera_screen.dart';
 import 'package:ieatta/screens/chat_screen.dart';
 import 'package:ieatta/screens/search_screen.dart';
 import 'package:ieatta/screens/splash_screen.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/main': (context) => MainScreen(),
         '/camera': (context) => CameraScreen(),
-        '/search':(context)=>SearchScreen(),
+        '/search': (context) => SearchScreen(),
         '/chat': (context) => ChatScreen(
               friend: User(
                   "Bhavneet Singh",

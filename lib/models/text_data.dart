@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../screens/camera/story/models/basic.dart';
+import 'basic.dart';
 
 class TextData extends Basic{
 

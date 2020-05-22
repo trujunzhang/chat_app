@@ -2,16 +2,15 @@ import 'dart:io';
 
 import 'package:ieatta/controllers/user_controller.dart';
 import 'package:ieatta/screens/people_screen.dart';
+import 'package:ieatta/widgets/ease_in_widget.dart';
 import 'package:ieatta/widgets/profile_picture_widget.dart';
 import 'package:ieatta/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'camera/widgets/ease_in_widget.dart';
 import 'chats_screen.dart';
 import 'discover_screen.dart';
 
 class MainScreen extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => _MainScreenState();
 }
@@ -19,10 +18,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   ScrollController controller;
   double elevation = 0.0;
-  List<Widget>screens=[];
-  List<String>titles=[
-    "Chats","People","Discover"
-  ];
+  List<Widget> screens = [];
+  List<String> titles = ["Chats", "People", "Discover"];
   @override
   void initState() {
     super.initState();
@@ -43,23 +40,31 @@ class _MainScreenState extends State<MainScreen> {
       }
     });
   }
-  int current=0;
+
+  int current = 0;
   @override
   Widget build(BuildContext context) {
     print("$current");
     return WillPopScope(
-      onWillPop: (){
-        showDialog(context: context,builder: (context)=>AlertDialog(
-          title: Text("Do you want to logout"),
-          actions: <Widget>[
-            FlatButton(onPressed: (){
-              Navigator.of(context).popUntil(ModalRoute.withName('/main'));
-            }, child: Text("Cancel")),
-            FlatButton(onPressed: (){
-              exit(0);
-            }, child: Text("Ok"))
-          ],
-        ));
+      onWillPop: () {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text("Do you want to logout"),
+                  actions: <Widget>[
+                    FlatButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .popUntil(ModalRoute.withName('/main'));
+                        },
+                        child: Text("Cancel")),
+                    FlatButton(
+                        onPressed: () {
+                          exit(0);
+                        },
+                        child: Text("Ok"))
+                  ],
+                ));
       },
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -82,17 +87,19 @@ class _MainScreenState extends State<MainScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
-                      onTap: (){
-                        showModalBottomSheet(context: context,builder: (context)=>ListTile(
-                          leading:Icon(Icons.input),
-                          title: Text("Logout"),
-                          trailing: Icon(Icons.chevron_right),
-                          onTap: ()async{
-                            await UserController.logOut();
-                            Navigator.of(context).pop();
-                            Navigator.of(context).popAndPushNamed('/');
-                          },
-                        ));
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) => ListTile(
+                                  leading: Icon(Icons.input),
+                                  title: Text("Logout"),
+                                  trailing: Icon(Icons.chevron_right),
+                                  onTap: () async {
+                                    await UserController.logOut();
+                                    Navigator.of(context).pop();
+                                    Navigator.of(context).popAndPushNamed('/');
+                                  },
+                                ));
                       },
                       child: ProfilePictureWidget(
                         size: 40.0,
@@ -107,7 +114,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               actions: <Widget>[
                 EaseInWidget(
-                  onTap: (){
+                  onTap: () {
                     Navigator.of(context).pushNamed('/camera');
                   },
                   child: Container(
@@ -126,7 +133,7 @@ class _MainScreenState extends State<MainScreen> {
                   width: 16.0,
                 ),
                 EaseInWidget(
-                  onTap: (){
+                  onTap: () {
                     Navigator.of(context).pushNamed('/search');
                   },
                   child: Container(
@@ -155,16 +162,12 @@ class _MainScreenState extends State<MainScreen> {
               controller: controller,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  SearchWidget(),
-                  screens[current]
-                ],
+                children: <Widget>[SearchWidget(), screens[current]],
               ),
             ),
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: BottomNavigationBar(
@@ -176,22 +179,26 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor: Colors.white,
               selectedItemColor: Colors.black,
               currentIndex: current,
-              onTap: (index){
+              onTap: (index) {
                 setState(() {
-                  current=index;
+                  current = index;
                 });
               },
               items: [
-                Option(title: "Chats",iconData: Icons.message),
-                Option(title: "People",iconData: Icons.group),
-                Option(title: "Explore",iconData: Icons.explore),
-              ].map((item)=>BottomNavigationBarItem(icon: Icon(item.iconData),title: Text(item.title))).toList(),
+                Option(title: "Chats", iconData: Icons.message),
+                Option(title: "People", iconData: Icons.group),
+                Option(title: "Explore", iconData: Icons.explore),
+              ]
+                  .map((item) => BottomNavigationBarItem(
+                      icon: Icon(item.iconData), title: Text(item.title)))
+                  .toList(),
             ),
           ),
         ),
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -199,7 +206,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class Option{
+class Option {
   final String title;
   final IconData iconData;
 

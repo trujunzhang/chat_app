@@ -1,6 +1,7 @@
-import 'package:ieatta/screens/camera/story/models/smiley_data.dart';
+import 'package:ieatta/models/smiley_data.dart';
 import 'package:flutter/material.dart';
-import 'package:ieatta/screens/camera/widgets/ease_in_widget.dart';
+
+import 'ease_in_widget.dart';
 
 class SmileyAddWidget extends StatefulWidget {
   final Function(SmileyData) onSelected;
@@ -13,12 +14,7 @@ class SmileyAddWidget extends StatefulWidget {
 class _SmileyAddWidgetState extends State<SmileyAddWidget> {
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
   AnimationController controller;
-  List<String> smilies = [
-    "sticker1",
-    "sticker2",
-    "sticker3",
-    "sticker4"
-  ];
+  List<String> smilies = ["sticker1", "sticker2", "sticker3", "sticker4"];
   @override
   void initState() {
     super.initState();
@@ -60,12 +56,13 @@ class _SmileyAddWidgetState extends State<SmileyAddWidget> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemBuilder: (context, index) {
               return EaseInWidget(
-                onTap: (){
-                  widget.onSelected(SmileyData(smileyPath: "images/${smilies[index]}.png"));
+                onTap: () {
+                  widget.onSelected(
+                      SmileyData(smileyPath: "images/${smilies[index]}.png"));
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

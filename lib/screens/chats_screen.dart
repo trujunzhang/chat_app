@@ -17,6 +17,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,16 +31,18 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ),
         StreamBuilder(
           stream: ChatsController.getChats(),
-          builder: (context,snapshot){
-            if(!snapshot.hasData){
-              return Center(child: CircularProgressIndicator(),);
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
-            List<Chat>chats=snapshot.data;
+            List<Chat> chats = snapshot.data;
             return ListView.builder(
-              itemBuilder: (context, index) =>RecentChatWidget(
+              itemBuilder: (context, index) => RecentChatWidget(
                 chat: chats[index],
               ),
-              itemCount:chats.length,
+              itemCount: chats.length,
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
             );

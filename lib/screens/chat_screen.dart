@@ -34,29 +34,28 @@ class _ChatScreenState extends State<ChatScreen> {
     super.initState();
     initUser();
     WidgetsBinding.instance.addPostFrameCallback((val) {
-     scrollController.addListener((){
-       final RenderBox renderBox=_key.currentContext.findRenderObject();
-       final size=renderBox.size;
-       double height=size.height*2/3;
-       if (scrollController.hasClients)
+      scrollController.addListener(() {
+        final RenderBox renderBox = _key.currentContext.findRenderObject();
+        final size = renderBox.size;
+        double height = size.height * 2 / 3;
+        if (scrollController.hasClients)
 //        scrollController.animateTo(scrollController.position.maxScrollExtent,
 //            duration: Duration(milliseconds: 100), curve: Curves.easeIn);
 
-       if (scrollController.offset >= height ) {
-         if (mounted) {
-           setState(() {
-             isHeader = false;
-           });
-         }
-       } else if (!isHeader) {
-         if (mounted) {
-           setState(() {
-             isHeader = true;
-           });
-         }
-       }
-     });
-
+        if (scrollController.offset >= height) {
+          if (mounted) {
+            setState(() {
+              isHeader = false;
+            });
+          }
+        } else if (!isHeader) {
+          if (mounted) {
+            setState(() {
+              isHeader = true;
+            });
+          }
+        }
+      });
     });
   }
 
@@ -92,27 +91,31 @@ class _ChatScreenState extends State<ChatScreen> {
               },
               color: Theme.of(context).primaryColor,
             ),
-            isHeader?Container(width: 0.0,):Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    widget.friend.profilePicture,
-                  ),
-                  radius: 14.0,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.00),
-                  child: Text(
-                    widget.friend.displayName,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.normal),
-                  ),
-                )
-              ],
-            )
+            isHeader
+                ? Container(
+                    width: 0.0,
+                  )
+                : Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          widget.friend.profilePicture,
+                        ),
+                        radius: 14.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.00),
+                        child: Text(
+                          widget.friend.displayName,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal),
+                        ),
+                      )
+                    ],
+                  )
           ],
         ),
         actions: <Widget>[
@@ -128,11 +131,11 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           PopupMenuButton(
             itemBuilder: (context) => [
-                  PopupMenuItem(
-                    child: Text("Info"),
-                    value: "Info",
-                  )
-                ],
+              PopupMenuItem(
+                child: Text("Info"),
+                value: "Info",
+              )
+            ],
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryColor,
@@ -149,8 +152,9 @@ class _ChatScreenState extends State<ChatScreen> {
                 Flexible(child: buildChats()),
                 ChatInputWidget(
                   onSubmitted: (val) {
-                    if(currentUser.id==widget.friend.id){
-                      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("You can not send message to you")));
+                    if (currentUser.id == widget.friend.id) {
+                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text("You can not send message to you")));
                       return;
                     }
                     Chat chat = Chat.fromNamed(

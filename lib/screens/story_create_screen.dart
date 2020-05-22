@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-import 'models/basic.dart';
-import 'models/image_data.dart';
-import 'widgets/smiley_add_widget.dart';
-import 'widgets/story_create_widget.dart';
-import 'widgets/text_add_widget.dart';
+import 'package:ieatta/controllers/image_compresser.dart';
+import 'package:ieatta/models/basic.dart';
+import 'package:ieatta/models/image_data.dart';
+import 'package:ieatta/widgets/smiley_add_widget.dart';
+import 'package:ieatta/widgets/story_create_widget.dart';
+import 'package:ieatta/widgets/text_add_widget.dart';
+import 'package:flutter/material.dart';
 
 class StoryCreateScreen extends StatefulWidget {
   final String imagePath;
@@ -43,13 +45,13 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
   }
 
   Offset offset;
-  bool adding=false;
+  bool adding = false;
   @override
   Widget build(BuildContext context) {
     print("Children baby ${children.length}");
     List<Widget> widgets = [];
     widgets.addAll(stackChildren);
-    if(!adding)
+    if (!adding)
       widgets.add(Positioned(
           top: offset.dy,
           left: offset.dx,
@@ -109,7 +111,7 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
                     children: <Widget>[
                       buildButton(Icons.text_fields, () {
                         setState(() {
-                          adding=true;
+                          adding = true;
                           stackChildren.removeLast();
                           stackChildren.add(TextAddWidget(
                             onSelected: onSelected,
@@ -118,7 +120,7 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
                       }),
                       buildButton(Icons.tag_faces, () {
                         setState(() {
-                          adding=true;
+                          adding = true;
                           stackChildren.removeLast();
                           stackChildren.add(SmileyAddWidget(
                             onSelected: onSelected,
@@ -169,10 +171,12 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
                             controller.createStory().then((val) {
                               Navigator.of(context).pop();
                               if (val) {
-                                Navigator.of(context).popUntil(ModalRoute.withName('/main'));
-                              }
-                              else{
-                                key.currentState.showSnackBar(SnackBar(content: Text("Something workng happened")));
+                                Navigator.of(context)
+                                    .popUntil(ModalRoute.withName('/main'));
+                              } else {
+                                key.currentState.showSnackBar(SnackBar(
+                                    content:
+                                        Text("Something workng happened")));
                               }
                             });
                           }
@@ -212,9 +216,9 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
                   CircularProgressIndicator(),
                   Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text("This may take some time"),
-                      ))
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("This may take some time"),
+                  ))
                 ],
               ),
             ),
@@ -225,7 +229,7 @@ class _StoryCreateScreenState extends State<StoryCreateScreen> {
 
   void onSelected(Basic basic) {
     setState(() {
-      adding=false;
+      adding = false;
       if (basic != null) children.add(basic);
       stackChildren.clear();
       stackChildren.add(

@@ -57,15 +57,22 @@ class _SearchScreenState extends State<SearchScreen> {
             print("Resi;t ${users.length}");
             return ListView.builder(
               itemBuilder: (context, index) => ListTile(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ChatScreen(friend: users[index],)));
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ChatScreen(
+                            friend: users[index],
+                          )));
                 },
                 leading: UserWidget(
                   size: 18.0,
                   user: users[index],
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 16.0),
-                title: Text(users[index].displayName,style: TextStyle(fontWeight: FontWeight.w700),),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                title: Text(
+                  users[index].displayName,
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
               ),
               itemCount: users.length,
               shrinkWrap: true,

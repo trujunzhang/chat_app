@@ -8,10 +8,12 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 class StoryImageWidget extends StatelessWidget {
   final String image;
   final Function onLoaded;
-  const StoryImageWidget({Key key,@required this.image,@required this.onLoaded}) : super(key: key);
+  const StoryImageWidget(
+      {Key key, @required this.image, @required this.onLoaded})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
-    DefaultCacheManager cacheManager=DefaultCacheManager();
+    DefaultCacheManager cacheManager = DefaultCacheManager();
     cacheManager.emptyCache();
     return Container(
       color: Colors.redAccent,
@@ -21,7 +23,10 @@ class StoryImageWidget extends StatelessWidget {
         fit: StackFit.expand,
         alignment: Alignment.center,
         children: <Widget>[
-          Image.network(image,fit: BoxFit.fill,),
+          Image.network(
+            image,
+            fit: BoxFit.fill,
+          ),
           BackdropFilter(
             filter: ImageFilter.blur(
               sigmaX: 75.0,
@@ -29,7 +34,7 @@ class StoryImageWidget extends StatelessWidget {
             ),
             child: new Container(
                 decoration:
-                new BoxDecoration(color: Colors.white.withOpacity(0.5))),
+                    new BoxDecoration(color: Colors.white.withOpacity(0.5))),
           ),
           CachedNetworkImage(
             imageUrl: image,
@@ -37,19 +42,15 @@ class StoryImageWidget extends StatelessWidget {
             fadeInDuration: Duration(milliseconds: 250),
             fadeInCurve: Curves.easeIn,
             cacheManager: cacheManager,
-            placeholder: (context,path)=>LoadingWidget(
-              onDisposed: (){
-                print("Loaded $image");
-                onLoaded(true);
-              },
-              onInit:(){
-                onLoaded(false);
-              }
-            ),
+            placeholder: (context, path) => LoadingWidget(onDisposed: () {
+              print("Loaded $image");
+              onLoaded(true);
+            }, onInit: () {
+              onLoaded(false);
+            }),
           )
         ],
       ),
     );
   }
-
 }

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:ieatta/screens/camera/story/models/basic.dart';
+import 'package:ieatta/models/basic.dart';
 import 'package:ieatta/models/text_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,7 +10,7 @@ import 'color_box.dart';
 class TextAddWidget extends StatefulWidget {
   final Function(Basic) onSelected;
 
-  const TextAddWidget({Key key,@required this.onSelected}) : super(key: key);
+  const TextAddWidget({Key key, @required this.onSelected}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _TextAddWidgetState();
 }
@@ -26,8 +26,8 @@ class _TextAddWidgetState extends State<TextAddWidget> {
   ];
   List<ColorBox> boxes = [];
   int current = 0;
-  bool filled=true;
-  TextAlign textAlign=TextAlign.left;
+  bool filled = true;
+  TextAlign textAlign = TextAlign.left;
   Widget textWidget;
   @override
   void initState() {
@@ -43,7 +43,7 @@ class _TextAddWidgetState extends State<TextAddWidget> {
     controller.addListener(() {
       setState(() {});
     });
-    WidgetsBinding.instance.addPostFrameCallback((val){
+    WidgetsBinding.instance.addPostFrameCallback((val) {
       focusNode.requestFocus();
     });
   }
@@ -80,26 +80,26 @@ class _TextAddWidgetState extends State<TextAddWidget> {
       }
     });
   }
+
   BoxDecoration decoration;
   TextStyle style;
-  FocusNode focusNode=FocusNode();
+  FocusNode focusNode = FocusNode();
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    style=TextStyle(
+    style = TextStyle(
         fontSize: 24.0,
         fontWeight: FontWeight.w700,
-        color: filled?textColor:colors[current],
+        color: filled ? textColor : colors[current],
         fontFamily: "B612Mono");
-    decoration=BoxDecoration(
-      color: filled?colors[current]:Colors.transparent,
+    decoration = BoxDecoration(
+      color: filled ? colors[current] : Colors.transparent,
       borderRadius: BorderRadius.circular(8.0),
     );
-    textWidget= Container(
+    textWidget = Container(
       padding: TextData.TEXT_PADDING,
       constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 3 / 4,
-          minWidth: 45.0),
+          maxWidth: MediaQuery.of(context).size.width * 3 / 4, minWidth: 45.0),
       width: (textSize) * 21.0,
       decoration: decoration,
       child: TextField(
@@ -116,7 +116,7 @@ class _TextAddWidgetState extends State<TextAddWidget> {
       ),
     );
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         widget.onSelected(null);
       },
       child: SafeArea(
@@ -127,8 +127,7 @@ class _TextAddWidgetState extends State<TextAddWidget> {
             alignment: Alignment.topRight,
             children: <Widget>[
               Center(
-                child:
-                textWidget,
+                child: textWidget,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
@@ -136,9 +135,14 @@ class _TextAddWidgetState extends State<TextAddWidget> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    FlatButton(onPressed: (){
-                      popBack();
-                    }, child: Text("Done",style: TextStyle(color: Colors.white,fontSize: 16.0),)),
+                    FlatButton(
+                        onPressed: () {
+                          popBack();
+                        },
+                        child: Text(
+                          "Done",
+                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                        )),
                     buildSelection(),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -175,7 +179,7 @@ class _TextAddWidgetState extends State<TextAddWidget> {
 
   get textSize {
     int i = 0;
-    if(controller.text.length==0){
+    if (controller.text.length == 0) {
       return 1;
     }
     controller.text.split("\n").forEach((val) {
@@ -183,13 +187,16 @@ class _TextAddWidgetState extends State<TextAddWidget> {
     });
     return i;
   }
-  void popBack(){
-    if(controller.text==null||controller.text.length==0){
+
+  void popBack() {
+    if (controller.text == null || controller.text.length == 0) {
       widget.onSelected(null);
       return;
     }
-    widget.onSelected(TextData(data: controller.text, decoration: decoration, textStyle: style));
+    widget.onSelected(TextData(
+        data: controller.text, decoration: decoration, textStyle: style));
   }
+
   Widget buildSelection() {
     return RaisedButton(
       onPressed: popBack,
@@ -210,34 +217,36 @@ class _TextAddWidgetState extends State<TextAddWidget> {
       elevation: 0.0,
       shape: CircleBorder(),
       color: Colors.black54,
-      onPressed: (){
+      onPressed: () {
         setState(() {
-          filled=!filled;
+          filled = !filled;
         });
       },
       padding: EdgeInsets.all(12.0),
       child: ImageIcon(
-        AssetImage(check?"images/font_filled.png":"images/font_outline.png"),
+        AssetImage(
+            check ? "images/font_filled.png" : "images/font_outline.png"),
         size: 20.0,
         color: Colors.white,
       ),
     );
   }
-  List<TextAlign> aligns=[TextAlign.left,TextAlign.center,TextAlign.right];
-  int currentAlign=0;
-  Widget buildAlignmentButton(TextAlign align){
-    Map icons={
-      TextAlign.center:Icons.format_align_center,
-      TextAlign.left:Icons.format_align_left,
-      TextAlign.right:Icons.format_align_right,
+
+  List<TextAlign> aligns = [TextAlign.left, TextAlign.center, TextAlign.right];
+  int currentAlign = 0;
+  Widget buildAlignmentButton(TextAlign align) {
+    Map icons = {
+      TextAlign.center: Icons.format_align_center,
+      TextAlign.left: Icons.format_align_left,
+      TextAlign.right: Icons.format_align_right,
     };
     return RaisedButton(
       elevation: 0.0,
       shape: CircleBorder(),
       color: Colors.black54,
-      onPressed: (){
+      onPressed: () {
         setState(() {
-          textAlign=aligns[(++currentAlign)%3];
+          textAlign = aligns[(++currentAlign) % 3];
         });
       },
       padding: EdgeInsets.all(12.0),
@@ -248,6 +257,7 @@ class _TextAddWidgetState extends State<TextAddWidget> {
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();

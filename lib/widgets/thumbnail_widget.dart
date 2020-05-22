@@ -1,17 +1,13 @@
 import 'dart:io';
+import 'package:ieatta/screens/story_create_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../story/story_create_screen.dart';
 
 class ThumbnailWidget extends StatefulWidget {
   final double size;
   final String imagePath;
 
-  const ThumbnailWidget(
-      {Key key,
-      @required this.imagePath,
-      this.size = 32.0})
+  const ThumbnailWidget({Key key, @required this.imagePath, this.size = 32.0})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => _ThumbnailWidgetState();
@@ -22,21 +18,25 @@ class _ThumbnailWidgetState extends State<ThumbnailWidget> {
   @override
   void initState() {
     super.initState();
-
   }
+
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    if(image==null){
+    if (image == null) {
       return;
     }
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>StoryCreateScreen(imagePath: image.path,)));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => StoryCreateScreen(
+              imagePath: image.path,
+            )));
   }
+
   @override
   Widget build(BuildContext context) {
-    thumb=widget.imagePath;
-     return GestureDetector(
-       onTap: getImage,
-       child: Container(
+    thumb = widget.imagePath;
+    return GestureDetector(
+      onTap: getImage,
+      child: Container(
           width: widget.size,
           height: widget.size,
           decoration: BoxDecoration(
@@ -54,6 +54,6 @@ class _ThumbnailWidgetState extends State<ThumbnailWidget> {
                   ),
                 )
               : null),
-     );
+    );
   }
 }

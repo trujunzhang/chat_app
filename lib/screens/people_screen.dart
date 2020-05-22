@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class PeopleScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _PeopleScreenState();
-
 }
 
 class _PeopleScreenState extends State<PeopleScreen> {
@@ -25,28 +24,35 @@ class _PeopleScreenState extends State<PeopleScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 20.0),
-          child: Text("Active",style: TextStyle(fontSize: 16.0,color: Colors.black54),),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+          child: Text(
+            "Active",
+            style: TextStyle(fontSize: 16.0, color: Colors.black54),
+          ),
         ),
         FutureBuilder(
           future: UserController.getActiveUsers(),
-          builder: (context,snapshot){
-            if(!snapshot.hasData){
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
               return Center(
                 child: CircularProgressIndicator(),
               );
             }
-            List<User> data=snapshot.data;
-            if(data.length==0){
+            List<User> data = snapshot.data;
+            if (data.length == 0) {
               return Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Want to connect with developers",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,),
+                      child: Text(
+                        "Want to connect with developers",
+                        style: TextStyle(fontSize: 16.0),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    FlatButton(onPressed: (){}, child: Text("Invite Here"))
+                    FlatButton(onPressed: () {}, child: Text("Invite Here"))
                   ],
                 ),
               );
@@ -54,7 +60,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
             return ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               itemBuilder: (context, index) => WaveUserWidget(
-                user:data[index],
+                user: data[index],
               ),
               itemCount: data.length,
               shrinkWrap: true,
@@ -65,5 +71,4 @@ class _PeopleScreenState extends State<PeopleScreen> {
       ],
     );
   }
-
 }

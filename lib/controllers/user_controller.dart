@@ -2,7 +2,7 @@ import 'package:ieatta/models/chat.dart';
 import 'package:ieatta/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 import 'chats_controller.dart';
 
@@ -61,8 +61,8 @@ class UserController {
   }
 
   static Future<bool> logOut() async {
-//    var facebookLogin = FacebookLogin();
-//    await facebookLogin.logOut();
+    var facebookLogin = FacebookLogin();
+    await facebookLogin.logOut();
     await FirebaseAuth.instance.signOut();
     return true;
   }
