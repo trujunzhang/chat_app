@@ -1,7 +1,7 @@
-import 'package:ieatta/controllers/stories_controller.dart';
-import 'package:ieatta/models/story.dart';
-import 'package:ieatta/screens/stories_screen.dart';
-import 'package:ieatta/widgets/story_widget.dart';
+import '../controllers/stories_controller.dart';
+import '../models/story.dart';
+import 'package:ieatta/camera/screens/stories_screen.dart';
+import 'story_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

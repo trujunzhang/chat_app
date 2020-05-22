@@ -1,5 +1,5 @@
-import 'package:ieatta/models/story.dart';
-import 'package:ieatta/screens/story_screen.dart';
+import '../models/story.dart';
+import 'package:ieatta/camera/screens/story_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

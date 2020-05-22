@@ -1,14 +1,10 @@
 import 'dart:developer';
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/models/story.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../models/story.dart';
-import '../models/story.dart';
-import '../models/story.dart';
+import '../models/user.dart';
 import '../models/story.dart';
 
 class StoriesController {

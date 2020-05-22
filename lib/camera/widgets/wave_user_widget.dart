@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/widgets/user_widget.dart';
+import '../models/user.dart';
+import 'user_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'ease_in_widget.dart';

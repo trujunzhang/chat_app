@@ -1,4 +1,4 @@
-import 'package:ieatta/widgets/rounded_button.dart';
+import '../widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverScreen extends StatefulWidget {

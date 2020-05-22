@@ -1,11 +1,11 @@
-import 'package:ieatta/screens/camera_screen.dart';
-import 'package:ieatta/screens/chat_screen.dart';
-import 'package:ieatta/screens/search_screen.dart';
-import 'package:ieatta/screens/splash_screen.dart';
-import 'package:ieatta/screens/main_screen.dart';
+import 'package:ieatta/camera/screens/camera_screen.dart';
+import 'package:ieatta/camera/screens/chat_screen.dart';
+import 'package:ieatta/camera/screens/search_screen.dart';
+import 'package:ieatta/camera/screens/splash_screen.dart';
+import 'package:ieatta/camera/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'models/user.dart';
+import 'camera/models/user.dart';
 
 void main() => runApp(MyApp());
 

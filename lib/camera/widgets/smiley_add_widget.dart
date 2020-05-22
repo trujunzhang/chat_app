@@ -1,4 +1,4 @@
-import 'package:ieatta/models/smiley_data.dart';
+import '../models/smiley_data.dart';
 import 'package:flutter/material.dart';
 
 import 'ease_in_widget.dart';

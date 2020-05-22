@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:ieatta/screens/story_create_screen.dart';
+import 'package:ieatta/camera/screens/story_create_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

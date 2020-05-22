@@ -1,8 +1,8 @@
-import 'package:ieatta/controllers/chats_controller.dart';
-import 'package:ieatta/controllers/user_controller.dart';
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/widgets/stories_widget.dart';
-import 'package:ieatta/widgets/wave_user_widget.dart';
+import '../controllers/chats_controller.dart';
+import '../controllers/user_controller.dart';
+import '../models/user.dart';
+import '../widgets/stories_widget.dart';
+import '../widgets/wave_user_widget.dart';
 import 'package:flutter/material.dart';
 
 class PeopleScreen extends StatefulWidget {

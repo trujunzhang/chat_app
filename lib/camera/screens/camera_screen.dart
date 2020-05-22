@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
-import 'package:ieatta/screens/story_create_screen.dart';
-import 'package:ieatta/widgets/rounded_button.dart';
+import 'package:ieatta/camera/screens/story_create_screen.dart';
+import '../widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ieatta/widgets/thumbnail_widget.dart';
+import '../widgets/thumbnail_widget.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:ieatta/widgets/camera_button.dart';
-import 'package:ieatta/widgets/switch_icon.dart';
+import '../widgets/camera_button.dart';
+import '../widgets/switch_icon.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CameraScreen extends StatefulWidget {

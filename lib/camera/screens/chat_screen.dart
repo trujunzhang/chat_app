@@ -1,13 +1,11 @@
-import 'package:ieatta/controllers/chats_controller.dart';
-import 'package:ieatta/controllers/user_controller.dart';
-import 'package:ieatta/models/chat.dart';
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/widgets/chat_input_widget.dart';
-import 'package:ieatta/widgets/chat_widget.dart';
+import '../controllers/chats_controller.dart';
+import '../controllers/user_controller.dart';
+import '../models/chat.dart';
+import '../models/user.dart';
+import '../widgets/chat_input_widget.dart';
+import '../widgets/chat_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:emoji_picker/emoji_picker.dart';
-import 'package:flutter/services.dart';
 
 class ChatScreen extends StatefulWidget {
   final User friend;

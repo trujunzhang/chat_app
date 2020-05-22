@@ -1,7 +1,5 @@
-import 'package:ieatta/models/chat.dart';
-import 'package:ieatta/screens/chat_screen.dart' as chatFile;
-import 'package:ieatta/widgets/user_widget.dart';
 import 'package:flutter/material.dart';
+import '../models/chat.dart';
 
 class ChatWidget extends StatelessWidget {
   final Chat chat;

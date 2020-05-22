@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:ieatta/widgets/loading_widget.dart';
+import 'loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';

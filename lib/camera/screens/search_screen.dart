@@ -1,7 +1,7 @@
-import 'package:ieatta/controllers/user_controller.dart';
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/screens/chat_screen.dart';
-import 'package:ieatta/widgets/user_widget.dart';
+import '../controllers/user_controller.dart';
+import '../models/user.dart';
+import 'package:ieatta/camera/screens/chat_screen.dart';
+import '../widgets/user_widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {

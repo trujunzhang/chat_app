@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:ieatta/models/basic.dart';
-import 'package:ieatta/models/text_data.dart';
+import '../models/basic.dart';
+import '../models/text_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

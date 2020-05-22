@@ -1,5 +1,5 @@
-import 'package:ieatta/controllers/json_controller.dart';
-import 'package:ieatta/models/user.dart';
+import '../controllers/json_controller.dart';
+import 'user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'story.g.dart';

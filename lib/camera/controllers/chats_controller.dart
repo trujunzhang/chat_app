@@ -1,7 +1,8 @@
-import 'package:ieatta/controllers/user_controller.dart';
-import 'package:ieatta/models/user.dart';
-import 'package:ieatta/models/chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'user_controller.dart';
+import '../models/user.dart';
+import '../models/chat.dart';
 
 //import 'package:crypto/crypto.dart' as crypto;
 //import 'dart:convert';

@@ -1,5 +1,4 @@
-import 'package:ieatta/controllers/user_controller.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePictureWidget extends StatefulWidget {

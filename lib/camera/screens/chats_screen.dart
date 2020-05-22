@@ -1,10 +1,10 @@
-import 'package:ieatta/controllers/chats_controller.dart';
-import 'package:ieatta/controllers/stories_controller.dart';
-import 'package:ieatta/models/chat.dart';
-import 'package:ieatta/widgets/chat_widget.dart';
-import 'package:ieatta/widgets/recent_chat_widget.dart';
-import 'package:ieatta/widgets/search_widget.dart';
-import 'package:ieatta/widgets/stories_widget.dart';
+import '../controllers/chats_controller.dart';
+import '../controllers/stories_controller.dart';
+import '../models/chat.dart';
+import '../widgets/chat_widget.dart';
+import '../widgets/recent_chat_widget.dart';
+import '../widgets/search_widget.dart';
+import '../widgets/stories_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChatsScreen extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:ieatta/controllers/json_controller.dart';
+import '../controllers/json_controller.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';

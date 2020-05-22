@@ -1,7 +1,7 @@
-import 'package:ieatta/controllers/stories_controller.dart';
-import 'package:ieatta/models/story.dart';
-import 'package:ieatta/widgets/story_image_widget.dart';
-import 'package:ieatta/widgets/storyline_widget.dart';
+import '../controllers/stories_controller.dart';
+import '../models/story.dart';
+import '../widgets/story_image_widget.dart';
+import '../widgets/storyline_widget.dart';
 import 'package:flutter/material.dart';
 
 class StoryScreen extends StatefulWidget {
