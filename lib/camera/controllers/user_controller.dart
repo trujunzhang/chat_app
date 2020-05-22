@@ -1,5 +1,5 @@
-import 'package:ieatta/models/chat.dart';
-import 'package:ieatta/models/user.dart';
+import '../models/chat.dart';
+import '../models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_facebook_login/flutter_facebook_login.dart';
